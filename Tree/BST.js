@@ -65,6 +65,19 @@ class BTree {
             console.log(node.data)
         }
     }
+
+
+    searchData(node, data) {
+        if (node == null) {
+            return null
+        } else if (data < node.data) {
+            return this.searchData(node.left, data)
+        } else if (data > node.data) {
+            return this.searchData(node.right, data)
+        } else {
+            return true
+        }
+    }
 }
 
 
@@ -91,3 +104,10 @@ console.log('Pre Order')
 BST.preorder(x)
 console.log('Post Order')
 BST.postorder(x)
+console.log('Search Node')
+
+if (BST.searchData(x, 5)) {
+    console.log(true)
+} else {
+    console.log(false)
+}
