@@ -27,4 +27,4 @@ function ValidPan(s) {
 
 let s = '()[]{}'
 
-console.log(ValidPan(s))
+console.log(ValidPan(s)) // Print Valid parantheses or not
