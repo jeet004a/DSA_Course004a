@@ -1,3 +1,25 @@
+class Queue {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    dequeue() {
+        return this.items.shift();
+    }
+
+    front() {
+        return this.items[0];
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+}
+
 class Graph {
     constructor(noOfvertices) {
         this.noOfvertices = noOfvertices;
@@ -28,6 +50,34 @@ class Graph {
             }
             console.log(i + "->" + a)
         }
+    }
+
+
+    bfs(statringNode) {
+        let visited = {}
+
+        let q = new Queue()
+
+        visited[statringNode] = true
+        q.enqueue(statringNode)
+
+        while (!q.isEmpty()) {
+            let element = q.dequeue()
+
+            console.log(element)
+
+            let get_list = this.AdjList.get(element)
+
+            for (let i in get_list) {
+                let neigh = get_list[i]
+
+                if (!visited[neigh]) {
+                    visited[neigh] = true
+                    q.enqueue(neigh)
+                }
+            }
+        }
+
     }
 }
 
@@ -60,4 +110,4 @@ g.addEdge('C', 'F');
 // F -> E C
 g.printGraph();
 
-// g.bfs('A')
+g.bfs('A')
