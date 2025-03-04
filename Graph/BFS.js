@@ -1,3 +1,5 @@
+//This file contains Breadth First Search of a graph
+
 class Queue {
     constructor() {
         this.items = [];
