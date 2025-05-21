@@ -13,7 +13,8 @@ function bubble(a) {
 }
 
 // let a = [3, 1, 2, 4, 5, 6, 10, 9]
-let a = [2, 3, 1, 4, 5]
+// let a = [2, 3, 1, 4, 5]
+let a = [5, 1, 1, 2, 0, 0]
 bubble(a)
 
 console.log(a)

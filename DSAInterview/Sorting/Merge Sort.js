@@ -39,7 +39,7 @@ function ms(a, low, high) {
         return
     }
 
-    mid = low + parseInt((high - low) / 2)
+    let mid = Math.floor(low + (high - low) / 2)
     ms(a, low, mid)
     ms(a, mid + 1, high)
     merge(a, low, mid, high)
@@ -50,8 +50,9 @@ function mergesort(a) {
     ms(a, 0, a.length - 1)
 }
 
-a = [2, 1, 4, 3, 5]
-    // let a = [3, 1, 2, 4, 5, 6, 10, 9]
+// a = [2, 1, 4, 3, 5]
+// let a = [3, 1, 2, 4, 5, 6, 10, 9, 1]
+let a = [5, 1, 1, 2, 0, 0]
 
 mergesort(a)
 
