@@ -76,6 +76,6 @@ g.addEdges('E', 'F');
 g.addEdges('E', 'C');
 g.addEdges('C', 'F');
 
-g.printGraph()
+// g.printGraph()
 console.log('DFS')
 g.dfs('A')
