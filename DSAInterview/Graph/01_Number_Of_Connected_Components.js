@@ -1,10 +1,4 @@
 class Solution {
-    /**
-    * @param number V
-    * @param number[][] edges
-
-    * @returns number[][]
-    */
     graph(V, edges) {
         const adjList = Array.from({ length: V }, () => [])
         for (let [v, u] of edges) {
