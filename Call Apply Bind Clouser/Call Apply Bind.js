@@ -166,3 +166,41 @@ let obj3 = {
 let abc = greet.bind({...obj1, ...obj2 }, "Jack")
 
 console.log(abc(obj3, "Kitto"))
+
+
+
+
+// Q1. Create a polyfill of bind method
+
+//Q2. If we use arraow function then can we use bind method for inner arraow function
+
+const user = {
+    name: 'Jeet',
+    greet: () => {
+        console.log(`Hi, ${this.name}`);
+    }
+};
+
+user.greet() // Output: Hi, undefined ❌
+    //Reason - Arrow functions do not have their own this — they inherit this from the parent scope
+
+// ✅ Solve way 1
+const user = {
+    name: 'Jeet',
+    greet() {
+        console.log(`Hi, ${this.name}`);
+    }
+};
+user.greet()
+
+// ✅ Solve way 2 (using bind)
+
+const user = {
+    name: 'Jeet',
+    greet() {
+        console.log(`Hi, ${this.name}`);
+    }
+};
+
+let abc = user.greet.bind(user)
+abc()
