@@ -38,3 +38,40 @@ var isBipartite = function(graph) {
 
     return true
 }
+
+
+
+
+//Below code is for BFS
+var isBipartite = function(graph) {
+    let n = graph.length
+    let visited = new Array(n).fill(false)
+    let color = new Array(n).fill(-1)
+
+    //the outer extra for loop handle disconnected graph
+    for (let i = 0; i < n; i++) {
+        if (color[i] !== -1) { //already visited
+            continue
+        }
+        let q = [i]
+        color[i] = 0
+        while (q.length) {
+            let node = q.shift()
+            visited[node] = true
+            for (let j of graph[node]) {
+                if (!visited[j]) {
+                    if (color[j] === -1) {
+                        color[j] = 1 - color[node]
+
+                    } else if (color[j] == color[node]) {
+                        return false
+                    }
+                    q.push(j)
+                }
+
+            }
+        }
+    }
+
+    return true
+};
