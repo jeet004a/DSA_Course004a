@@ -53,4 +53,33 @@ var isValidSudoku = function(board) {
         }
     }
     return true
-};
+}
+
+
+
+
+
+//Below function is most optimal solution
+
+var isValidSudoku = function(board) {
+    let s = new Map()
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (board[i][j] == '.') continue
+            let val = board[i][j]
+            let row = val + '_ROW_' + i
+            let col = val + '_COL_' + j
+            let box = val + '_BOX_' + String(Math.floor(i / 3)) + '-' + String(Math.floor(j / 3))
+
+            if (s.has(row) || s.has(col) || s.has(box)) {
+                return false
+            }
+
+            s.set(row, 1)
+            s.set(col, 1)
+            s.set(box, 1)
+        }
+    }
+
+    return true
+}
