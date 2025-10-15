@@ -43,3 +43,22 @@ output:
 Q2.
 How to improve api response when a frontend developer call a api with pagination request.
 */
+
+
+
+//Solve
+
+let result={}
+
+for(let i=0;i<data.length;i++){
+    // let m
+    if(!result[data[i].month]){
+        result[data[i].month]={total_sale: 0}
+    }
+    
+    
+   result[data[i].month][data[i].product]=data[i].sales
+   result[data[i].month].total_sale+=data[i].sales
+}
+
+console.log(result)
