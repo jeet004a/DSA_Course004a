@@ -1,0 +1,45 @@
+🎤 Short 45-second version (for quick rounds)
+
+“At Emerson, I worked on a Third-Party Channel Governance Tool that helps 50+ business owners manage over 200 global channel partners. The platform allowed admins to set annual sales and performance targets for each partner, track progress across four KPIs — financial, organizational, systems, and final control — and assign year-end ratings.
+I built the microservice architecture in Node.js with Kafka for real-time updates and used role-based access control so admins, business owners, and partners had secure, isolated views. We automated partner onboarding using Kafka streaming, cutting manual processing by about 90%. My focus was backend design, authentication middleware, and integrating the evaluation and reporting logic.”
+
+
+
+
+-------------------------------------------------------------------------------
+
+🧠 Detailed 2-3 minute version (for technical or project-deep-dive rounds)
+
+“This project was for Emerson’s global channel ecosystem — they work with hundreds of third-party partners who sell and service their products worldwide. Each year, business owners set sales and operational goals for these partners, and at year end they evaluate them on KPIs like financial performance, organizational maturity, system adoption, and control standards.
+
+We built a Third-Party Channel Governance Tool to digitize that entire lifecycle. It’s a microservice-based Node.js platform, deployed on cloud infrastructure, and designed to handle distributed data for 200+ partners across 10+ business units and regions.
+
+My role was to design and develop the backend microservices. I created an RBAC-based authentication middleware using JWT and OAuth2, defining three main roles — Admin, Business Owner, and Partner.
+
+->Admins manage global configurations and region-level access.
+->Business Owners assign targets and review partner performance.
+->Partners can view assigned KPIs and upload their achievements or reports.
+
+I also implemented the evaluation system — a service that compares each partner’s initial goals with final outcomes and automatically computes year-end ratings. That logic feeds dashboards used by business owners.
+
+To keep all services in sync, we used Kafka for asynchronous updates between onboarding, evaluation, and reporting modules. For example, when a new partner was onboarded or data changed, Kafka events ensured every downstream service got the update in real time. This cut manual data reconciliation by roughly 90%.
+
+Overall, this tool standardized partner evaluation globally, improved visibility across business units, and reduced manual reporting effort drastically.”
+
+
+
+
+
+⚙️ If they probe technical questions, you can add:
+
+“We designed microservices for onboarding, authentication, evaluation, and reporting — each service had its own MongoDB collection and communicated via Kafka topics.”
+“Kafka handled partner onboarding events so all downstream services, like goal management and performance evaluation, got real-time updates.”
+“RBAC was middleware-based — each endpoint validated the JWT and decoded the user role before executing any controller logic.”
+“We used async event-driven design to keep services decoupled and scalable.”
+
+
+💬 Bonus one-liners for discussion
+“The main challenge was ensuring consistent data sync across distributed regions — Kafka really helped with that.”
+“We used a goal–vs–achievement comparison model to automatically assign partner ratings.”
+“Our authentication system supported three role hierarchies — Admin, Business Owner, Partner — with least-privilege principles.”
+“The onboarding automation reduced manual Excel-based processing by around 90%.”
